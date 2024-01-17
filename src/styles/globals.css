@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border list-none p-0 m-0 scroll-smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-l from-cyan-200 via-cyan-50 to-cyan-200 dark:bg-gradient-to-r dark:from-[#180c49]  dark:via-fuchsia-950 dark:to-[#180c49] min-h-screen;
+  }
+}
+ @layer components {
+
+  .grid-container {
+    @apply w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7 max-w-5xl;
+  }
+  .flex-between {
+      @apply flex items-center justify-between;
+  }
+
+  .common-container {
+    @apply flex flex-col flex-1 items-center gap-10 overflow-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
+  }
+
+  .icon {
+    @apply dark:text-fuchsia-100 text-cyan-950 hover:text-cyan-600 dark:hover:text-fuchsia-400
+  }
+
+  .text {
+    @apply dark:text-fuchsia-50 text-cyan-950
+  }
+
+  .logo {
+    @apply text-5xl bg-gradient-to-l from-cyan-700 via-cyan-500 to-fuchsia-400 bg-clip-text text-transparent p-2 font-bold tracking-wide transition duration-300 ease-in-out hover:animate-ping
+  }
+ }
