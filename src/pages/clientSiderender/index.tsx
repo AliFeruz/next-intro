@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,7 +33,6 @@ const ClientSideRender = () => {
             const response = await fetch("https://fakestoreapi.com/products", { signal });
             if (response.ok) {
                 const result = await response.json();
-                console.log(result)
                 setProducts(result)
             }
             
@@ -48,6 +48,7 @@ const ClientSideRender = () => {
      })
     }, [])
 
+    
 
     
   return (
@@ -56,10 +57,13 @@ const ClientSideRender = () => {
       <div className='grid-container mt-10'>
         {products && products.map((product) =>
         (
+          <Link key={product.id} href={`/clientSiderender/product/[id]`} as={`/clientSiderender/product/${product.id}`}>
           <div className='h-[300px] items-center justify-center w-[300px] p-10 bg-fuchsia-50 rounded-md'>
             <img src={product.image} alt="product image" className='w-[150px] h-[150px] rounded-md' />
             <p className='text-center  mt-5 text-fuchsia-700'>{product.title}</p>
           </div>
+          </Link>
+          
         ))}
       </div>
     </div>
